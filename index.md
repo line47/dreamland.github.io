@@ -8,7 +8,7 @@ title: Welcome
 {% for post in site.posts reversed limit:3 offset:1 %}
 {% assign expires = post.date | date: "%s" %}
 {% assign current_time = site.time | date: "%s" %}
-{% if current_time < expires %}
+{% if current_time <= expires %}
     <li class="events-listing-item">
       <a href="{{site.baseurl}}{{ post.url }}">
         <span class="events-listing-date">{{ post.Date | date: "%b %d, %Y" }}</span>

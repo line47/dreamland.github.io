@@ -2,7 +2,7 @@
 layout: default
 title: Welcome
 ---
-
+{{site.time}}
 <ul class="events-listing">
 {% assign sorted = (site.posts | sort: 'date') %}
 {% for post in site.posts reversed limit:3 offset:1 %}

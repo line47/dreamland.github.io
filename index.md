@@ -10,9 +10,9 @@ title: Welcome
 {% assign current_time = site.time | date: "%s" %}
 {% if current_time < expires %}
     <li class="events-listing-item">
-      <a href="{{ post.url }}">
+      <a href="{{site.baseurl}}{{ post.url }}">
         <span class="events-listing-date">{{ post.Date | date: "%b %d, %Y" }}</span>
-        <img src="{{ post.smallImage }}" class="events-listing-image" />
+        <img src="{{site.baseurl}}{{ post.smallImage }}" class="events-listing-image" />
         <span class="events-listing-title">{{ post.title }}</span>
           </a>
         <span class="events-listing-price">${{ post.price }}</span>

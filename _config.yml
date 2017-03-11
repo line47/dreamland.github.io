@@ -1,1 +1,6 @@
-theme: jekyll-theme-cayman
+Timezone: America/Kentucky/Louisville
+Permalink: pretty
+future: true
+collections:
+  events:
+    output: true

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+
+    {% include head.html %}
+
+    <body class="layout-default">
+        <div class="content-container">
+          {% include header.html %}
+            <h2 class="page-title">{{ page.title }}</h2>
+            <div class="main-content">
+              <span class="events-listing-date">{{ page.Date | date: "%b %d, %Y" }}</span>
+              <img src="{{ page.smallImage }}" class="events-listing-image" />
+              
+              <span class="events-listing-price">${{ page.price }}</span>
+              {% if page.soldOut %}
+                <span class="sold-out">Sold Out</span>
+              {% else %}
+              <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="float:right;">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="{{post.paypalValue}}">
+                <button name="submit" class="btn btn-buy-now">Buy tickets</button>
+              </form>
+
+              {% endif %}
+
+              <div class="events-listing-item-footer">
+              <span class="events-listing-time-doors">Doors {{page.TimeDoors}}</span>
+              <span class="events-listing-time-start">Show {{page.TimeStart}}</span>
+      <span class="events-listing-ages">{{page.Ages}}</span>
+            </div>
+            <p class="events-listing-short-description">{{ page.shortDescription }}</p>
+                {{ content }}
+            </div>
+        </div>
+
+        {% include footer.html %}
+
+    </body>
+</html>

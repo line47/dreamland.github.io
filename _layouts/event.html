@@ -3,33 +3,41 @@
 
     {% include head.html %}
 
-    <body class="layout-default">
+    <body class="layout-event">
+    {% include header.html %}
         <div class="content-container">
-          {% include header.html %}
-            <h2 class="page-title">{{ page.title }}</h2>
-            <div class="main-content">
-              <span class="events-listing-date">{{ page.Date | date: "%b %d, %Y" }}</span>
-              <img src="{{ page.smallImage }}" class="events-listing-image" />
 
-              <span class="events-listing-price">${{ page.price }}</span>
+
+            <div class="main-content">
+                <h1 class="page-title">{{ page.title }}</h1>
+                <h2 class="events-listing-date">{{ page.Date | date: "%b %d, %Y" }}</h2>
+                <img src="{{ page.smallImage }}" class="events-listing-image" />
+<div style="background-color:#efefef; min-height:180px;padding-top:20px">
+<h3 class="events-listing-price">${{ page.price }}</h3>
+
+
+
               {% if page.soldOut %}
                 <span class="sold-out">Sold Out</span>
               {% else %}
-              <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="float:right;">
+              <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" class="ticket-form">
                 <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="{{post.paypalValue}}">
+                <input type="hidden" name="hosted_button_id" value="{{page.paypalValue}}">
                 <button name="submit" class="btn btn-buy-now">Buy tickets</button>
               </form>
-
               {% endif %}
 
               <div class="events-listing-item-footer">
-              <span class="events-listing-time-doors">Doors {{page.TimeDoors}}</span>
-              <span class="events-listing-time-start">Show {{page.TimeStart}}</span>
-      <span class="events-listing-ages">{{page.Ages}}</span>
-            </div>
-            <p class="events-listing-short-description">{{ page.shortDescription }}</p>
+                <span class="events-listing-time-doors">Doors {{page.TimeDoors}}</span>
+                <span class="events-listing-time-start">Show {{page.TimeStart}}</span>
+                <span class="events-listing-ages">{{page.Ages}}</span>
+              </div>
+</div>
+            <!--<p class="events-listing-short-description">{{ page.shortDescription }}</p>-->
+<br style="clear:both">
+<div class="readability">
                 {{ content }}
+              </div>
             </div>
         </div>
 

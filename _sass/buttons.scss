@@ -1,0 +1,18 @@
+.btn {
+padding: .5rem 1rem;
+background-color:#333;
+color:#fff;
+border:0;
+border-radius: 0px;
+font-size:initial;
+
+&:hover {
+  cursor: pointer;
+}
+
+&.btn-buy-now {
+  background-color: green;
+
+}
+
+}

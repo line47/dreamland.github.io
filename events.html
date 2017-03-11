@@ -8,13 +8,13 @@ permalink: /events/
 
 <ul class="events-listing">
   {% for post in site.posts reversed %}
-  {% assign expires = post.Date | date: "%s" %}
+  {% assign expires = post.date | date: "%s" %}
   {% assign current_time = site.time | date: "%s" %}
   {% if current_time <= expires %}
     <li class="events-listing-item">
       <a href="{{ post.url }}">
         <span class="events-listing-date">{{ post.Date | date: "%b %d, %Y" }}</span>
-        <img src="{{ post.smallImage }}" class="events-listing-image" />
+        <img src="{{site.baseurl}}{{ post.smallImage }}" class="events-listing-image" />
         <span class="events-listing-title">{{ post.title }}</span>
           </a>
         <span class="events-listing-price">${{ post.price }}</span>

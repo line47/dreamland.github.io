@@ -10,7 +10,7 @@
             <div class="main-content">
               <span class="events-listing-date">{{ page.Date | date: "%b %d, %Y" }}</span>
               <img src="{{ page.smallImage }}" class="events-listing-image" />
-              
+
               <span class="events-listing-price">${{ page.price }}</span>
               {% if page.soldOut %}
                 <span class="sold-out">Sold Out</span>

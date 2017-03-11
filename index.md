@@ -4,10 +4,11 @@ title: Welcome
 ---
 
 <ul class="events-listing">
-  {% for post in site.posts reversed offset: 1 limit: 3%}
-  {% assign expires = post.Date | date: "%s" %}
-  {% assign current_time = site.time | date: "%s" %}
-  {% if current_time < expires %}
+{% assign sorted = (site.posts | sort: 'date') %}
+{% for post in site.posts reversed limit:3 offset:1 %}
+{% assign expires = post.date | date: "%s" %}
+{% assign current_time = site.time | date: "%s" %}
+{% if current_time < expires %}
     <li class="events-listing-item">
       <a href="{{ post.url }}">
         <span class="events-listing-date">{{ post.Date | date: "%b %d, %Y" }}</span>
